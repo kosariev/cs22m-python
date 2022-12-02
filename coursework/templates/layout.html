@@ -1,0 +1,39 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Oleksandr Kosariev, KH-22m">
+        <meta name="description" content="">
+        <link rel="icon" href="{% static 'logo.svg' %}">
+        <title>Зареєстровані автомобільні засоби міста</title>
+        <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                    <img src="{% static 'logo.svg' %}" class="bi me-2" height="48" alt="Логотип проєкту" />
+                    <div style="line-height: 1.3; padding-left: 8px">
+                        <span class="fs-6"><b>Зареєстровані автомобільні засоби міста</b>
+                        {% if title %}<br/><small>{{ title }}</small>{% endif %}
+                    </span>
+                    </div>
+                </a>
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a href="/" class="nav-link{% if page == 'index' %} active{% endif %}">Головна</a></li>
+                    <li class="nav-item"><a href="/cars" class="nav-link{% if page == 'cars' %} active{% endif %}">Перелік</a></li>
+                </ul>
+            </header>
+
+            <main class="pb-1">
+                {% block content %}{% endblock %}
+            </main>
+
+            <footer class="pt-2 my-5 text-muted border-top text-md-end">
+                Oleksandr Kosariev<br/><i>KH-22m</i>
+            </footer>
+        </div>
+    </body>
+</html>

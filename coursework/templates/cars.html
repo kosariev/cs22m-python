@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% block title %}
+    Перелік
+{% endblock %}
+
+{% block content %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Тип автомобільного засобу</th>
+                <th scope="col">Марка автомобільного засобу</th>
+                <th scope="col">Державний реестраційний номер</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        {% if cars %}
+            <tbody class="table-group-divider">
+                {% for car in cars %}
+                    <tr>
+                        <th scope="row">{{ car.id }}</th>
+                        <td>{{ car.type }}</td>
+                        <td>{{ car.vendor }}</td>
+                        <td>{{ car.plate }}</td>
+                        <td class="text-md-end">
+                            <a href="/edit/{{ car.id }}" class="link-secondary align-baseline text-decoration-none d-inline-block">✎</a>
+                            <a href="/delete/{{ car.id }}" class="link-danger align-baseline text-decoration-none d-inline-block">✖</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        {% endif %}
+    </table>
+    <a href="/add" class="btn btn-outline-success btn-sm float-end">✚ Додати авто</a>
+{% endblock %}

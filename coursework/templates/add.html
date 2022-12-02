@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Додати авто
+{% endblock %}
+
+{% block content %}
+    <form action="" method="post" autocomplete="off">
+        {% csrf_token %}
+        <label for="type"><b>Тип автомобільного засобу</b></label>
+        {{ form.type }}
+        <label for="vendor"><b>Марка автомобільного засобу</b></label>
+        {{ form.vendor }}
+        <label for="plate"><b>Державний реестраційний номер</b></label>
+        {{ form.plate }}
+        <button type="submit" class="btn btn-success">Додати</button>
+    </form>
+{% endblock %}

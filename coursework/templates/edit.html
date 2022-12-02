@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Редагувати авто (ID: {{ car.id }})
+{% endblock %}
+
+{% block content %}
+    <h1>Редагувати авто (ID: {{ car.id }})</h1>
+    <form action="" method="post" autocomplete="off">
+        {% csrf_token %}
+        <label for="type"><b>Тип автомобільного засобу</b></label>
+        {{ car.type }}
+        <label for="vendor"><b>Марка автомобільного засобу</b></label>
+        {{ car.vendor }}
+        <label for="plate"><b>Державний реестраційний номер</b></label>
+        {{ car.plate }}
+        <button type="submit" class="btn btn-success">Змінити</button>
+    </form>
+{% endblock %}
